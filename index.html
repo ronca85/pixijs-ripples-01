@@ -50,11 +50,49 @@
 
 			displacementFilter = new DisplacementFilter(displacementMap);
 
+			blurFilter = new PIXI.filters.BlurFilter();
+
 			displacementMap.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
 			app.stage.addChild(displacementMap);
 			app.stage.filters = [displacementFilter];
+			// app.stage.filters = [blurFilter];
+/*
+			var bg = PIXI.Sprite.from('displacement-map.jpg');
 
+			bg.anchor.x = 0.5;
+			bg.anchor.y = 0.5;
+
+			bg.position.x = app.renderer.width / 2;
+			bg.position.y = app.renderer.height / 2;
+
+			app.stage.addChild(bg);
+
+			var container = new PIXI.Container();
+			container.position.x = app.renderer.width / 2;
+			container.position.y = app.renderer.height / 2;
+
+			var maskThing = new PIXI.Graphics();
+			app.stage.addChild(maskThing);
+
+			container.mask = maskThing;
+			app.stage.addChild(container);
+
+			app.stage.on('click', onClick);
+			app.stage.on('tap', onClick);
+
+			function onClick() {
+				if(!container.mask)
+				{
+					console.log(container.mask);
+					container.mask = maskThing;
+				}
+				else {
+					console.log(container.mask);
+					container.mask = null;
+				}
+			}
+*/
 			app.renderer.view.style.transform = "scale(1.02)";
 			displacementMap.scale.x = 4;
 			displacementMap.scale.y = 4;
